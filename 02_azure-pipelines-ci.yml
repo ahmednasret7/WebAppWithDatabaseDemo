@@ -46,13 +46,6 @@ jobs:
     displayName: 'PS : Add Project GUID'
     enabled: false
   
-  - task: SonarCloudPrepare@1
-    displayName: 'Prepare analysis on SonarCloud'
-    inputs:
-      SonarCloud: SonarCloud
-      organization: ahmednasret7
-      projectKey: Ahmednasret7
-  
   - task: DotNetCoreCLI@2
     displayName: Build
     inputs:
@@ -78,7 +71,6 @@ jobs:
       arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
   
 
-  
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact (WebApp.zip)'
     inputs:
